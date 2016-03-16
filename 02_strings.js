@@ -77,3 +77,28 @@ var str = 'Twas the night before Xmas...';
 str.replace(/xmas/i, 'Christmas');
 // This is an excellent link to learn more about regular expressions: http://regexr.com/
 
+// The replace method can also accept a callback function as the 2nd parameter.
+// Example: Here is a function that takes a 'camelCasing' string and converts it to 'camel-casing' like text.
+function styleHyphenFormat(propertyName) {
+  return propertyName.replace(/[A-Z]/g, upperToHyphenLower);
+  function upperToHyphenLower(match) {
+    return '-' + match.toLowerCase();
+  }
+}
+
+
+// ------------------------------------
+// slice
+// ------------------------------------
+// Slice method extracts a section of a string and returns a new string.
+'hello'.slice(2, 4);        // will return the characters from [2, 4) i.e. including at index 2 till 4 but excluding 4.
+// if no 2nd parameter is mentioned, then it will return from 2 until the length of the string.
+
+// You can also enter negative numbers as parameters, the negative numbers will start from the end of the string instead
+//  of the beginning.
+'hello'.slice(-2);          // will return the string 'lo' i.e. 2 from the end, until the end (because 2nd parameter isn't mentioned).
+// will be the same as writing
+'hello'.slice('hello'.length - 2);
+
+
+
