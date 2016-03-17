@@ -99,6 +99,3 @@ function styleHyphenFormat(propertyName) {
 'hello'.slice(-2);          // will return the string 'lo' i.e. 2 from the end, until the end (because 2nd parameter isn't mentioned).
 // will be the same as writing
 'hello'.slice('hello'.length - 2);
-
-
-
