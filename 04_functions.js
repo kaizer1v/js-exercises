@@ -51,3 +51,29 @@ console.log(myObj.something);      // will return 'nothing'
 
 something(myObj);
 console.log(myObj.something);      // will return 'something'
+
+
+// ==========================
+// Function Stack & Recursion
+// ==========================
+function foo(i) {
+  if(i < 0) return;
+  console.log('begin ' +i);
+  foo(i - 1);
+  console.log('end ' +i);
+}
+// this is a recursive function
+// let's call it
+foo(3);
+
+// the following will be its output
+/*
+  begin 3
+  begin 2
+  begin 1
+  begin 0
+  end 0
+  end 1
+  end 2
+  end 3
+*/
