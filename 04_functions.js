@@ -31,3 +31,23 @@ function map(f, a) {
 map(function(x) { return x*x }, [0, 2, 5, 11]);
 // This will basically map every element of the array to it's square and return it.
 
+// Pass by reference or pass by value?
+// When you pass in primitive types such as a number or a string or even a boolean,
+//  it is passed by value. Eg:
+function square(number) {
+  return number * number;
+}
+number = 123;
+// Here, the number value remains the same within the function i.e. the scope of the
+//  parameter remains within the function, but not for non-primitive types such as 
+//  an array or even an object
+
+function something(obj) {
+  obj.something = 'something';    // this change is visible globally
+}
+
+var myObj = { 'something': 'nothing' };
+console.log(myObj.something);      // will return 'nothing'
+
+something(myObj);
+console.log(myObj.something);      // will return 'something'

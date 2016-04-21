@@ -17,3 +17,9 @@ console.log(arr[5]);
 // will obviously print out undefined, since that index doesn't exist.
 // Yes, JS is smart :)
 
+// Arrays are basically literals. They are literally whetever you define them to be.
+var arr = [4, 5, , 9];
+// Here, the array has 4 elements, arr[2] is 'undefined'
+
+
+
