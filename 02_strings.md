@@ -3,13 +3,13 @@
 [Ref link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 
 
-```javscript
+```javascript
 var str = 'I am ' + 'a' + ' string';
 ```
 
 A string can be appended like so. You can also print out the length of a given string.
 
-```javscript
+```javascript
 console.log(str.length);
 ```
 
@@ -24,7 +24,7 @@ console.log(str.length);
 will return `h`. Think of the `substring` method, mention the start index in the beginning, (starting from 0);
 
 
-```javscript
+```javascript
 'hello'.substring(0, 0); // will return "", basically an empty string
 // Also,
 'hello'.substring(0, 235);
@@ -36,7 +36,7 @@ will return `h`. Think of the `substring` method, mention the start index in the
 
 Just like the .substring method, there is another method, called .substr
 
-```javscript
+```javascript
 'hello'.substr(0, 1);
 'hello'.substr(0, 0);
 'hello'.substr(0, 235);
@@ -44,7 +44,7 @@ Just like the .substring method, there is another method, called .substr
 
 All these outputs would be exactly the same as what the .substring method would produce. The only difference is in the meaning of the 2nd argument.
 
-```javscript
+```javascript
 .substring(start_index, stop_index_but_dont_include)
 // where as
 .substr(start_index, max_length)
@@ -54,12 +54,12 @@ All these outputs would be exactly the same as what the .substring method would 
 
 As you might have guessed, you can change the case of a string.
 
-```javscript
+```javascript
 'hElL0'.toLowerCase();
 ```
 will output 'hell0'. Numbers will not change their case obviously. Actually there is no method to alternate the case of the given text. The trick to check is,
 
-```javscript
+```javascript
 if('E' == 'e'.toUpperCase()) { ... }
 ```
 
@@ -72,13 +72,13 @@ You can also check out `toLocaleUpperCase` and `toLocaleLowerCase` for different
 
 Helps you know where a particular character you are looking for, if exists.
 
-```javscript
+```javascript
 'hello'.charAt(5);
 ```
 
 will return a '', since there is nothing that exists there. For that matter even
 
-```javscript
+```javascript
 'hello'.charAt(235);
 ```
 will return a `''`. Try inputting a negative number.
@@ -94,27 +94,27 @@ Very similar to this, another function called `charCodeAt` will return the chara
 You can match characters or set of characters to replace within a string and get it returned as
  a new string, using the .replace method. So,
 
-```javscript
+```javascript
 'hello'.replace('l', 123);
 ```
 
 will return `he123lo`. As you see, it will only replace the 1st occurance of 'l' and not the 2nd.
 You can also replace two 'll's together
 
-```javscript
+```javascript
 'hello'.replace('ll', 123);
 ```
 
 Trying to replace something that doesnt exist, will return the original string as is.
 
-```javscript
+```javascript
 'hello'.replace('', 123);       // will return '123hello'
 ```
 
 will insert 123 at the beginning of the string. This can be used more like a pre-pend method.
 You can also use regular expression to match patterns and replace them.
 
-```javscript
+```javascript
 var str = 'Twas the night before Xmas...';
 str.replace(/xmas/i, 'Christmas');
 ```
@@ -124,7 +124,7 @@ This is an excellent link to learn more about regular expressions: http://regexr
 The `replace` method can also accept a callback function as the 2nd parameter.
 Example: Here is a function that takes a 'camelCasing' string and converts it to 'camel-casing' like text.
 
-```javscript
+```javascript
 function styleHyphenFormat(propertyName) {
   return propertyName.replace(/[A-Z]/g, upperToHyphenLower);
   function upperToHyphenLower(match) {
@@ -137,7 +137,7 @@ function styleHyphenFormat(propertyName) {
 
 Slice method extracts a section of a string and returns a new string.
 
-```javscript
+```javascript
 'hello'.slice(2, 4);
 ```
 
@@ -147,13 +147,13 @@ if no 2nd parameter is mentioned, then it will return from 2 until the length of
 You can also enter negative numbers as parameters, the negative numbers will start from the end of the string instead
  of the beginning.
 
- ```javscript
+ ```javascript
 'hello'.slice(-2);
 ```
 
 will return the string 'lo' i.e. 2 from the end, until the end (__because 2nd parameter isnt mentioned__).
 will be the same as writing
 
-```javscript
+```javascript
 'hello'.slice('hello'.length - 2);
 ```
