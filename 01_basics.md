@@ -19,7 +19,7 @@ Here, javascript will automatically assign the value `undefined` to x.
 ```javascript
 // no var???
 something = 'nothing';
-``` javascript
+```
 
 Although, this is legal, later on, we will see that this might cause issues with variable scoping. So, avoid using this.
 
