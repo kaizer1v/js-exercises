@@ -119,7 +119,7 @@ var str = 'Twas the night before Xmas...';
 str.replace(/xmas/i, 'Christmas');
 ```
 
-This is an excellent link to learn more about regular expressions: http://regexr.com/
+This is an excellent link to learn more about regular expressions [over here](http://regexr.com/)
 
 The `replace` method can also accept a callback function as the 2nd parameter.
 Example: Here is a function that takes a 'camelCasing' string and converts it to 'camel-casing' like text.
