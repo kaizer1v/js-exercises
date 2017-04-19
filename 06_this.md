@@ -86,7 +86,7 @@ the 2nd approach more flexible.
 Now that I have made myself clear with the advantages of using the `this` method of writing functions, I will
 take it a step further and try to play around this concept along with the concept of closure. 
 
-**If you are reading this and aren't sure what scope or closure is, highly recommend to view [YDKJS series](), it is 
+**If you are reading this and aren't sure what scope or closure is, highly recommend to view [YDKJS series](https://github.com/getify/You-Dont-Know-JS/blob/master/scope%20&%20closures/README.md#you-dont-know-js-scope--closures), it is 
 really awesome.**
 
 
