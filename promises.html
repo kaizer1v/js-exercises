@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Promises</title>
+  <style type="text/css">
+    
+    .box {
+      background: #eee;
+      border: 1px solid #333;
+      width: 250px;
+      height: 250px;
+      display: inline-block;
+      margin: 10px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+
+<script type="text/javascript">
+  
+  // let boxes = document.getElementsByClassName('box')
+
+
+  function fetchX() {                 // takes a lot of time
+    for(let i = 0; i < 10000; i++) {}   // do nothing
+    return 123
+  }
+  function fetchY() {                 // takes some time
+    for(let i = 0; i < 10; i++) {}    // do nothing
+    return 241
+  }
+
+  Promise.all([ fetchX(), fetchY() ])
+    .then(function(values) {
+      console.log(`${values[0]} + ${values[1]} = ${values[0] + values[1]}`)
+    })
+    .catch(err => console.error(err))
+
+  console.log('continue execution')
+
+</script>
+</body>
+</html>
