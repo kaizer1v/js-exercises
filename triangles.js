@@ -1,3 +1,5 @@
+"use strict"
+
 class Triangle {
 
   // construct with 3 sides
