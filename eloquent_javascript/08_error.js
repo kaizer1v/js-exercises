@@ -13,6 +13,40 @@ let ferdinand = Person("Ferdinand"); // oops
 console.log(name);                   // → Ferdinand
 */
 
+/** 00
+
+Create a specific type of error to be caught
+
+**/
+class evenNumberError extends Error {}
+
+function promptEvenNumberError() {
+  let result = prompt('Enter a number')
+  if(result % 2 === 0) return 'Even'
+  throw new evenNumberError('Not an even number')
+}
+
+// an interface for a getting an input from a user
+function input() {
+  for(;;) {
+    try {
+      let num = promptEvenNumberError()
+      console.log('You chose', num)
+      break
+    }
+    catch(e) {
+      if(e instanceof evenNumberError) {
+        console.log('Invalid input, try again.')
+      } else {
+        throw e
+      }
+    }
+  }
+}
+// input()
+
+
+
 
 
 
@@ -35,19 +69,19 @@ function primitiveMultiply(a, b) {
 }
 
 function reliableMultiply(a, b) {
-  // Your code here.
   for(;;) {
     try {
       return primitiveMultiply(a, b)
     }
     catch(e) {
-      if (!(e instanceof MultiplicatorUnitFailure))
-        throw e;
+      // if(!(e instanceof MultiplicatorUnitFailure)) throw e
+      console.error('an error occured.')
     }
   }
 }
 
-console.log(reliableMultiply(8, 8));        // → 64
+// assert.equal(reliableMultiply(0, 0), 0)
+assert.equal(reliableMultiply(8, 8), 64)
 
 
 
@@ -126,4 +160,3 @@ console.log(box.locked);
 
 
 
->>>>>>> 39c1261d76286e1430f991a9d4847c1198a1f6c1
