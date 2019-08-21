@@ -1,4 +1,4 @@
-const test = require('./run_tests.js').test
+const assert = require('assert')
 
 /** 01
 
@@ -12,8 +12,10 @@ function arrayFlatten(arr) {
     return acc.concat(x && x.constructor === Array ? arrayFlatten(x) : x)
   }, [])
 }
-console.log(arrayFlatten([[1, 2, 3], [4, 5], [6]]))     // [1, 2, 3, 4, 5, 6]
-
+assert.deepEqual(arrayFlatten([[[]]]), [])
+assert.deepEqual(arrayFlatten([[1, [2, 3]], [4, 5], [6]]), [1, 2, 3, 4, 5, 6])
+assert.deepEqual(arrayFlatten([[1, 2, 3], 4, [5, [6]]]), [1, 2, 3, 4, 5, 6])
+console.log('arrayFlatten ---> PASSED');
 
 
 
@@ -50,9 +52,10 @@ function every(arr, cond) {
   if(arr.length === 0) return true
   return arr.map(elem => cond(elem)).reduce((a, b) => a === b)
 }
-test('every([1, 3, 5], n => n % 2 == 1)', every([1, 3, 5], n => n % 2 == 1), true)
-test('every([1, 3, 5], n => n % 2 == 1)', every([1, 3, 5], n => n > 10), false)
-test('every([1, 3, 5], n => n % 2 == 1)', every([], n => n > 10), true)
+assert.equal(every([1, 3, 5], n => n % 2 == 1), true)
+assert.equal(every([1, 3, 5], n => n > 10), false)
+assert.equal(every([], n => n > 10), true)
+console.log('every ---> PASSED');
 
 
 

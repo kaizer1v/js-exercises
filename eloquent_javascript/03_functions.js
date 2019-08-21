@@ -1,4 +1,26 @@
-const test = require('./run_tests').test
+const assert = require('assert') // node's inbuilt assert module
+/**
+function available in node's assert module are
+
+fail: [Function: fail],
+AssertionError: [Function: AssertionError],
+ok: [Circular],
+equal: [Function: equal],
+notEqual: [Function: notEqual],
+deepEqual: [Function: deepEqual],
+deepStrictEqual: [Function: deepStrictEqual],
+notDeepEqual: [Function: notDeepEqual],
+notDeepStrictEqual: [Function: notDeepStrictEqual],
+strictEqual: [Function: strictEqual],
+notStrictEqual: [Function: notStrictEqual],
+throws: [Function: throws],
+doesNotThrow: [Function: doesNotThrow],
+ifError: [Function: ifError] }
+
+ref_link: https://www.w3schools.com/nodejs/ref_assert.asp
+
+**/
+
 
 /** 01
 
@@ -9,8 +31,8 @@ function min(a, b) {
   return (a < b) ? a : b
 }
 console.log('-------------------- min --->')
-test('(0, 10)', min(0, 10), 0)
-test('(0, -10)', min(0, -10), -10)
+assert.strictEqual(min(0, 10), 0)
+assert.strictEqual(min(0, -10), -10)
 
 
 
@@ -38,9 +60,9 @@ function isEven(num) {
   return isEven(num - 2)
 }
 console.log('-------------------- isEven --->')
-test('50', isEven(50), 'EVEN')
-test('75', isEven(75), 'ODD')
-test('-1', isEven(-1), 'ODD')
+assert.strictEqual(isEven(50), 'EVEN')
+assert.strictEqual(isEven(75), 'ODD')
+assert.strictEqual(isEven(-1), 'ODD')
 
 
 
@@ -57,9 +79,9 @@ function countBs(str) {
   }).length
 }
 console.log('-------------------- countBs --->')
-test('BBC',   countBs("BBC"), 2)
-test('ACEDZ', countBs("ACEDZ"), 0)
-test('bABab', countBs("bABab"), 1)
+assert.strictEqual(countBs("BBC"), 2)
+assert.strictEqual(countBs("ACEDZ"), 0)
+assert.strictEqual(countBs("bABab"), 1)
 
 
 
@@ -78,6 +100,6 @@ function countChars(str, char) {
   }).length
 }
 console.log('-------------------- countChars --->')
-test('kakkerlak, k',   countChars("kakkerlak", "k"), 4)
-test('ACsssDGAsdASGAZRT, s, ', countChars("ACsssDGAsdASGAZRT", "s"), 4)
-test('bABab, b', countChars("bABab", "b"), 2)
+assert.strictEqual(countChars("kakkerlak", "k"), 4)
+assert.strictEqual(countChars("ACsssDGAsdASGAZRT", "s"), 4)
+assert.strictEqual(countChars("bABab", "b"), 2)

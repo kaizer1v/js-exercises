@@ -1,4 +1,5 @@
-const test = require('./run_tests.js').test
+// const test = require('./run_tests.js').test
+const assert = require('assert')
 
 /** 01
 
@@ -13,10 +14,9 @@ function range(start, end, step = 1) {
   }
   return to_return
 }
-console.log('01 -------------------- range --->')
-console.log(assert.deepEqual(range(3, 10), [3, 4, 5, 6, 7, 8, 9, 10], 'some mesg'))
-// console.log(range(3, 10))
-// console.log(range(-5, 5))
+assert.deepEqual(range(3, 10), [3, 4, 5, 6, 7, 8, 9, 10])
+assert.deepEqual(range(-5, 5), [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5])
+console.log('01 -------------------- range ---> PASSED')
 
 
 
@@ -33,9 +33,9 @@ function sum(arr) {
     return a + b
   })
 }
-console.log('02 -------------------- sum --->')
-test('sum(1, 10)', sum(range(1, 10)), 55)
-test('sum(1, 10)', sum(range(-5, 5)), 0)
+assert.strictEqual(sum(range(1, 10)), 55)
+assert.strictEqual(sum(range(-5, 5)), 0)
+console.log('02 -------------------- sum ---> PASSED')
 
 
 
@@ -54,11 +54,11 @@ function reverseArray(arr) {
   }
   return to_return
 }
-console.log('03 -------------------- reverseArray --->')
-console.log(reverseArray([]))
-console.log(reverseArray(['a']))
-console.log(reverseArray(['a', 'b', 'c']))
-console.log(reverseArray([1, 2, 3, 4, 5]))
+assert.deepEqual(reverseArray([]), [])
+assert.deepEqual(reverseArray(['a']), ['a'])
+assert.deepEqual(reverseArray(['a', 'b', 'c']), ['c', 'b', 'a'])
+assert.deepEqual(reverseArray([1, 2, 3, 4, 5]), [5, 4, 3, 2, 1])
+console.log('03 -------------------- reverseArray ---> PASSED')
 
 
 
@@ -72,7 +72,7 @@ array given as argument by reversing its elements. Neither may use the standard 
 function reverseArrayInPlace(arr) {
 
 }
-console.log('03 -------------------- reverseArrayInPlace --->')
+console.log('04 -------------------- reverseArrayInPlace ---> PASSED')
 
 
 
@@ -107,10 +107,10 @@ function arrayToList(arr) {
   obj['rest'] = arrayToList(arr)
   return obj
 }
-console.log('05 -------------------- arrayToList --->')
-console.log(arrayToList([]))          // {}
-console.log(arrayToList([1]))         // { value: 1, rest: null }
-console.log(arrayToList([1, 2, 3]))   // { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } }
+assert.deepEqual(arrayToList([]), {})
+assert.deepStrictEqual(arrayToList([1]), { value: 1, rest: null })
+assert.deepStrictEqual(arrayToList([1, 2, 3]), { value: 1, rest: { value: 2, rest: { value: 3, rest: null } } })
+console.log('05 -------------------- arrayToList ---> PASSED')
 
 
 
@@ -139,49 +139,10 @@ function listToArray(list) {
     return to_return.concat([l['value'], ___(l['rest'])])
   }(list)))
 }
-console.log('05.1 -------------------- arrayToList --->')
-console.log(listToArray({}))                                                                // []
-console.log(listToArray({ value: 1, rest: null }))                                          // [1]
-console.log(listToArray({ value: 1, rest: { value: 2, rest: { value: 3, rest: null } } }))  // [1, 2, 3]        // [1]
-
-
-
-
-
-/** 06
-
-Write a function deepEqual that takes two values and returns true only if they are the same 
-value or are objects with the same properties, where the values of the properties are equal
-when compared with a recursive call to deepEqual.
-
-**/
-function deepEqual(obj1, obj2) {
-  if(obj1.constructor === obj2.constructor) {
-    if(obj1.constructor === Array) {
-      // check if both arrays are equal
-      // ...
-    } else if(obj1.constructor === Object) {
-      // check if both objects are equal
-      // ...
-    } else {
-      // anything apart from an `Array` or `Object`
-      return obj1 === obj2
-    }
-  } else {
-    // if the constructors of both arguments are different
-    return false
-  }
-}
-test(
-  'deepEqual({"a": {"aa": 123}, "b": false}, {"a": {"aa": 123}, "b": false})',
-  deepEqual({"a": {"aa": 123}, "b": false}, {"a": {"aa": 123}, "b": false}),
-  true
-)
-test(
-  'deepEqual({}, {})',
-  sum(range(-5, 5)),
-  0
-)
+assert.deepStrictEqual(listToArray({}), [])
+assert.deepStrictEqual(listToArray({ value: 1, rest: null }), [1])
+assert.deepStrictEqual(listToArray({ value: 1, rest: { value: 2, rest: { value: 3, rest: null } } }), [1, 2, 3])
+console.log('05.1 -------------------- arrayToList ---> PASSED')
 
 
 
